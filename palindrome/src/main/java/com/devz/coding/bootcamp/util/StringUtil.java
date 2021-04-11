@@ -24,8 +24,9 @@ public class StringUtil {
         final char[] charArray = text.toCharArray();
         final char[] lowerCaseArray = toLowerCase(charArray);
         final char[] removedSpaceArray = removeSpaces(lowerCaseArray);
+        final char[] removedSpecialCharacters = removedSpecialCharacters(removedSpaceArray);
 
-        return stripAccents(removedSpaceArray);
+        return stripAccents(removedSpecialCharacters);
     }
 
     private static char[] reverseText(final char[] textToReverse) {
@@ -117,5 +118,31 @@ public class StringUtil {
         System.arraycopy(text, 0, newArray, 0, newArray.length);
 
         return newArray;
+    }
+
+    private static char[] removedSpecialCharacters(final char[] text) {
+        final char[] newText = new char[text.length];
+
+        for(int index = 0, newIndex = 0; index < text.length; index++) {
+            if(!isPunctuationMark(text[index])) {
+                newText[newIndex] = text[index];
+                newIndex++;
+            }
+        }
+
+        return trimArray(newText);
+    }
+
+    private static boolean isPunctuationMark(final char letter) {
+        boolean isPunctuationMark = false;
+
+        for (PunctuationMark punctuationMark : PunctuationMark.values()) {
+            if (letter == punctuationMark.getPunctuationMark()) {
+                isPunctuationMark = true;
+                break;
+            }
+        }
+
+        return isPunctuationMark;
     }
 }
