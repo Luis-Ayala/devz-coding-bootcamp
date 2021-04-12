@@ -4,6 +4,10 @@ import java.util.*;
 
 public class Program {
 
+    /**
+     * Entry point
+     * @param args List of arguments, this program does not need inputs
+     */
     public static void main(String... args) {
         Program program = new Program();
         program.calculatePascalTriangle();
