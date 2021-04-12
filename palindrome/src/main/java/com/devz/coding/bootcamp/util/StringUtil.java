@@ -5,19 +5,16 @@ public class StringUtil {
     private static final char EMPTY_CHAR = ' ';
 
     public static boolean isPalindrome(final String text) {
-        boolean mismatch = false;
-
         final char[] normalizedText = normalizeText(text);
         final char[] reversedText = reverseText(normalizedText);
 
         for(int index = 0; index < normalizedText.length; index++) {
             if(normalizedText[index] != reversedText[index]) {
-                mismatch = true;
-                break;
+                return false;
             }
         }
 
-        return !mismatch;
+        return true;
     }
 
     private static char[] normalizeText(final String text) {
