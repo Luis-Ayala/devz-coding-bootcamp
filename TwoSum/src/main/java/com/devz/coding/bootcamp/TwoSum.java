@@ -6,11 +6,8 @@ import java.util.stream.Collectors;
 public class TwoSum {
 
     public static void main(String[] args) {
-        int[] nums1 = new int[] {2, 7, 1, 5 };
-        int[] nums2= new int[] {3, -1, 0, 1 };
-
-        System.out.println(Arrays.toString(twoSum(nums1, 9)));
-        System.out.println(Arrays.toString(twoSum(nums2, 0)));
+        int[] nums = new int[] {2, -1, 1, 5 };
+        System.out.println(Arrays.toString(twoSum(nums, 0)));
     }
 
     public static int[] twoSum(final int[] nums, final int target) {
