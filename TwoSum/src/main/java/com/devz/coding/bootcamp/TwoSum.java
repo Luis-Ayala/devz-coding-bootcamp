@@ -11,16 +11,16 @@ public class TwoSum {
     }
 
     public static int[] twoSum(final int[] nums, final int target) {
-        Map<Integer, Integer> cahe = new HashMap<>();
+        Map<Integer, Integer> cached = new HashMap<>();
 
         for(int index = 0; index < nums.length; index++) {
             int complement = target - nums[index];
 
-            if (cahe.containsKey(complement)) {
-                return new int[] { cahe.get(complement) , index };
+            if (cached.containsKey(complement)) {
+                return new int[] { cached.get(complement) , index };
             }
 
-            cahe.put(nums[index], index);
+            cached.put(nums[index], index);
         }
 
         return new int[0];
