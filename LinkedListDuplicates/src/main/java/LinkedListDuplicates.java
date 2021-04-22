@@ -1,5 +1,5 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 public class LinkedListDuplicates {
     public static void main(String... args) {
@@ -30,12 +30,12 @@ public class LinkedListDuplicates {
     }
 
     public static ListNode removeDuplicates(final ListNode node) {
-        final Map<Integer, ListNode> cache = new HashMap<>();
+        final Set<Integer> cache = new HashSet<>();
         ListNode prevNode = node;
         ListNode currNode = node;
         while(currNode.next != null) {
-            if(! cache.containsKey(currNode.value)) {
-                cache.put(currNode.value, currNode);
+            if(! cache.contains(currNode.value)) {
+                cache.add(currNode.value);
                 prevNode = currNode;
                 currNode = currNode.next;
                 continue;
