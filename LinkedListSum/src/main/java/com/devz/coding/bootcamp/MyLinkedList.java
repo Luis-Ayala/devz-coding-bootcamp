@@ -22,7 +22,6 @@ public class MyLinkedList {
 
     public MyLinkedList sum(MyLinkedList linkedList) {
         StringBuilder sb1 = new StringBuilder();
-        StringBuilder sb2 = new StringBuilder();
         MyLinkedList sum = new MyLinkedList();
 
         Node currNode = this.head;
@@ -31,14 +30,17 @@ public class MyLinkedList {
             currNode = currNode.next;
         }
 
+        int sumAsInt = Integer.parseInt(sb1.reverse().toString());
+
         currNode = linkedList.head;
+        sb1.setLength(0);
         while(currNode != null) {
-            sb2.append(currNode.value);
+            sb1.append(currNode.value);
             currNode = currNode.next;
         }
 
-        int sumAsInt = Integer.parseInt(sb1.reverse().toString()) + Integer.parseInt(sb2.reverse().toString());
-        char[] sumAsArray = Integer.toString(sumAsInt).toCharArray();
+        int sumAsInt2 = Integer.parseInt(sb1.reverse().toString());
+        char[] sumAsArray = Integer.toString(sumAsInt + sumAsInt2).toCharArray();
 
         for(int index = sumAsArray.length - 1; index >=0; index--) {
             sum.addNode(Integer.parseInt(String.valueOf(sumAsArray[index])));
