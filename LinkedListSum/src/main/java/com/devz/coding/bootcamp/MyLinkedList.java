@@ -20,27 +20,29 @@ public class MyLinkedList {
         return this;
     }
 
-    public MyLinkedList sum(MyLinkedList linkedList) {
-        StringBuilder sb1 = new StringBuilder();
-        MyLinkedList sum = new MyLinkedList();
+    public MyLinkedList sum(final MyLinkedList linkedList) {
+        final StringBuilder sb1 = new StringBuilder();
+        final StringBuilder sb2 = new StringBuilder();
+        final MyLinkedList sum = new MyLinkedList();
 
-        Node currNode = this.head;
-        while(currNode != null) {
-            sb1.append(currNode.value);
-            currNode = currNode.next;
+        Node thisCurrNode = this.head;
+        Node thatCurrNode = linkedList.head;
+
+        while(thisCurrNode != null || thatCurrNode != null) {
+            if(thisCurrNode != null) {
+                sb1.append(thisCurrNode.value);
+                thisCurrNode = thisCurrNode.next;
+            }
+
+            if(thatCurrNode != null) {
+                sb2.append(thatCurrNode.value);
+                thatCurrNode = thatCurrNode.next;
+            }
         }
 
-        int sumAsInt = Integer.parseInt(sb1.reverse().toString());
+        int sumAsInt = Integer.parseInt(sb1.reverse().toString()) + Integer.parseInt(sb2.reverse().toString());
 
-        currNode = linkedList.head;
-        sb1.setLength(0);
-        while(currNode != null) {
-            sb1.append(currNode.value);
-            currNode = currNode.next;
-        }
-
-        int sumAsInt2 = Integer.parseInt(sb1.reverse().toString());
-        char[] sumAsArray = Integer.toString(sumAsInt + sumAsInt2).toCharArray();
+        char[] sumAsArray = Integer.toString(sumAsInt).toCharArray();
 
         for(int index = sumAsArray.length - 1; index >=0; index--) {
             sum.addNode(Integer.parseInt(String.valueOf(sumAsArray[index])));
