@@ -58,11 +58,6 @@ public class MyLinkedList {
         public Node(final int value) {
             this.value = value;
         }
-
-        public Node(final int value, final Node next) {
-            this.value = value;
-            this.next = next;
-        }
     }
 
     @Override
