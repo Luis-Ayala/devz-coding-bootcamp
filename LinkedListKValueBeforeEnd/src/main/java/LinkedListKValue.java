@@ -24,7 +24,7 @@ public class LinkedListKValue {
                 .addNode(9)
                 .addNode(10);
 
-        System.out.println(linkedList1.getKNodeBeforeEnd(2));
-        System.out.println(linkedList2.getKNodeBeforeEnd(9));
+        System.out.println(linkedList11.getKNodeBeforeEnd(2));
+        System.out.println(linkedList22.getKNodeBeforeEnd(9));
     }
 }
