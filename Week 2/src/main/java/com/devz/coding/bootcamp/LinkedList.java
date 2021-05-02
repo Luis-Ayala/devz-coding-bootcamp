@@ -4,41 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class LinkedList {
-    private final Set<Node> visited = new HashSet<>();
     private Node head;
-
-    public static class Node {
-        int data;
-        Node next;
-
-        public Node(final int data) {
-            this.data = data;
-            this.next = null;
-        }
-    }
-
-    /**
-     * Print the linked list i -> j -> k ->...
-     */
-    public void print() {
-        if(head == null)
-            System.out.println("NULL");
-
-        if(hasCycleReference()) {
-            System.out.println("The linked list has a cycle reference.");
-            return;
-        }
-
-        Node currentNode = head;
-        while(currentNode != null) {
-            System.out.print(currentNode.data);
-            if(currentNode.next != null)
-                System.out.print("->");
-
-            currentNode = currentNode.next;
-        }
-        System.out.println();
-    }
 
     /**
      * Add a new node to the end of the linked list
@@ -351,6 +317,7 @@ public class LinkedList {
      * @return true if the linked list has a cycle reference, false otherwise.
      */
     public boolean hasCycleReference() {
+        final Set<Node> visited = new HashSet<>();
         Node currNode = head;
         while (currNode != null) {
             if(visited.contains(currNode.next)) {
@@ -404,7 +371,7 @@ public class LinkedList {
             hare = hare.next;
             tortoise = tortoise.next;
 
-            if(hare.equals(tortoise))
+            if(hare != null && hare.equals(tortoise))
                 return true;
         }
     }
@@ -460,5 +427,26 @@ public class LinkedList {
                 limit *= 2;
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        if(head == null)
+            return "The linkedList is empty";
+
+        if(hasCycleReference())
+            return "The linked list has a cycle reference.";
+
+        StringBuilder sb = new StringBuilder();
+        Node currentNode = head;
+        while(currentNode != null) {
+            sb.append(currentNode.data);
+            if(currentNode.next != null)
+                sb.append("->");
+
+            currentNode = currentNode.next;
+        }
+
+        return sb.toString();
     }
 }
