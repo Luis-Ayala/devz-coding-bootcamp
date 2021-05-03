@@ -63,7 +63,7 @@ public class Dictionary {
     }
 
     public boolean isEmpty() {
-        return this.root.children.size() > 0;
+        return !this.root.children.size() > 0;
     }
 
     private void insert(String word) {
