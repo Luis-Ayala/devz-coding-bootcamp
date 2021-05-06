@@ -45,11 +45,10 @@ public class Dictionary {
 
         final char[] wordAsChar = prefix.toCharArray();
 
-        for(int index = 0; index < wordAsChar.length; index++) {
-            final char letter = wordAsChar[index];
+        for (final char letter : wordAsChar) {
             prefixes = current.children.get(letter);
 
-            if(prefixes == null)
+            if (prefixes == null)
                 break;
 
             current = prefixes;
@@ -70,8 +69,8 @@ public class Dictionary {
         TrieNode current = root;
         final char[] wordAsChar = word.toCharArray();
 
-        for(int index = 0; index < wordAsChar.length; index++) {
-            current = current.children.computeIfAbsent(wordAsChar[index], compute -> new TrieNode());
+        for (char c : wordAsChar) {
+            current = current.children.computeIfAbsent(c, compute -> new TrieNode());
         }
         current.isCompleteWord = true;
         current.word = word;
