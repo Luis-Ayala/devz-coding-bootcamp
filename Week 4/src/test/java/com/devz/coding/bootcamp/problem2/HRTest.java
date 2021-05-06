@@ -15,7 +15,7 @@ class HRTest {
     100              200              500
   1     2         3   4   5        400   9
                                     8
-                                  10  11
+                                 10  11
  */
     @BeforeAll
     public static void init() throws IOException {
