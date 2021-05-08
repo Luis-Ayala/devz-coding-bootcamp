@@ -1,7 +1,6 @@
-package com.devz.coding.bootcamp.problem3;
+package com.devz.coding.bootcamp.common;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;

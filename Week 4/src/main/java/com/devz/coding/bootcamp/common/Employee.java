@@ -1,6 +1,5 @@
-package com.devz.coding.bootcamp.problem3;
+package com.devz.coding.bootcamp.common;
 
-import javax.swing.*;
 import java.util.Objects;
 
 public class Employee {
@@ -22,10 +21,6 @@ public class Employee {
 
     public Employee() {
         this(null, false, 0);
-    }
-
-    public Employee(Integer employeeId) {
-        this(employeeId, false, 0);
     }
 
     public Employee(Integer employeeId, Integer cost) {
