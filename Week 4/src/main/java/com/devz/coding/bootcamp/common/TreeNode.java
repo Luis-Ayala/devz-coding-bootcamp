@@ -12,6 +12,11 @@ public class TreeNode {
         this.children = new HashMap<>();
     }
 
+    public TreeNode(Integer child) {
+        this.children = new HashMap<>();
+        this.children.put(new Employee(child), new TreeNode());
+    }
+
     public TreeNode(Integer child, Integer cost) {
         this.children = new HashMap<>();
         this.children.put(new Employee(child, cost), new TreeNode());

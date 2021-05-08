@@ -15,6 +15,14 @@ public class Employee {
         this.totalCost = totalCost;
     }
 
+    public Employee(Integer employeeId) {
+        this(employeeId, false, 0, 0);
+    }
+
+    public Employee(Integer employeeId, boolean isManager) {
+        this(employeeId, isManager, 0, 0);
+    }
+
     public Employee(Integer employeeId, boolean isManager, Integer cost) {
         this(employeeId, isManager, cost, 0);
     }
