@@ -1,7 +1,6 @@
-package com.devz.coding.bootcamp.problem2;
+package com.devz.coding.bootcamp.common;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,12 +12,14 @@ public class TreeNode {
         this.children = new HashMap<>();
     }
 
-    public TreeNode(Integer... children) {
+    public TreeNode(Integer child) {
         this.children = new HashMap<>();
-        Arrays.stream(children).forEach(child -> {
-            this.children.put(new Employee(child), new TreeNode());
-        });
+        this.children.put(new Employee(child), new TreeNode());
+    }
 
+    public TreeNode(Integer child, Integer cost) {
+        this.children = new HashMap<>();
+        this.children.put(new Employee(child, cost), new TreeNode());
     }
 
     @Override

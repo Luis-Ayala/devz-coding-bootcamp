@@ -5,15 +5,18 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class HRTest {
     private static HR hr = null;
-
+/*
+    100              200              500
+  1     2         3   4   5        400   9
+                                    8
+                                 10  11
+ */
     @BeforeAll
     public static void init() throws IOException {
         hr = new HR();

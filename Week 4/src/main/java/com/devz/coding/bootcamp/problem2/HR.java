@@ -1,5 +1,8 @@
 package com.devz.coding.bootcamp.problem2;
 
+import com.devz.coding.bootcamp.common.Employee;
+import com.devz.coding.bootcamp.common.TreeNode;
+
 import java.util.*;
 
 public class HR {
