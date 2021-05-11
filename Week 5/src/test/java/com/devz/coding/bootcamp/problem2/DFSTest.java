@@ -9,7 +9,7 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class GraphTest {
+class DFSTest {
 
     private final static Graph graph = new Graph();
 
@@ -38,11 +38,11 @@ class GraphTest {
 
         final DFS dfs = new DFS();
         final Set<String> visited = new HashSet<>();
-        boolean hasPath = dfs.getPathByDFS("A", "Z", visited, graph);
+        final Deque<String> path = new ArrayDeque<>();
+        boolean hasPath = dfs.getPathByDFS("A", "Z", visited, graph, path);
 
         assertTrue(hasPath);
-        assertFalse(visited.isEmpty());
-        assertEquals("Z", visited.toArray()[visited.size() - 1]);
-        assertTrue(starts.contains(visited.toArray(new String[0])[0]));
+        assertEquals("Z", path.peek());
+        assertTrue(starts.contains(path.getLast()));
     }
 }

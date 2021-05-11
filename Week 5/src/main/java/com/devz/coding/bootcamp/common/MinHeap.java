@@ -1,14 +1,14 @@
 package com.devz.coding.bootcamp.common;
 
 public class MinHeap {
-    private static  HeapNode[] array;
+    private static  Node[] array;
     private static int tail;
 
     public MinHeap() {
     }
 
-    public static HeapNode[] build(final HeapNode[] input) {
-        array = new HeapNode[input.length];
+    public static Node[] build(final Node[] input) {
+        array = new Node[input.length];
         System.arraycopy(input, 0, array, 0, input.length);
         tail = input.length;
 
@@ -29,11 +29,11 @@ public class MinHeap {
         return array == null || array.length == 0;
     }
 
-    public static HeapNode extractMin() {
+    public static Node extractMin() {
         if(array == null || array.length == 0)
             return null;
 
-        HeapNode min = getMin();
+        Node min = getMin();
         tail--;
         array[0] = array[tail];
         array[tail] = null;
@@ -41,7 +41,7 @@ public class MinHeap {
         return min;
     }
 
-    private static HeapNode getMin() {
+    private static Node getMin() {
         if(array == null || array.length == 0)
             return null;
 
@@ -50,7 +50,7 @@ public class MinHeap {
 
     private static void sortHeap() {
         for(int index = tail - 1; index > 0; index--) {
-            HeapNode swap = array[0];
+            Node swap = array[0];
             array[0] = array[index];
             array[index] = swap;
 
@@ -58,7 +58,7 @@ public class MinHeap {
         }
     }
 
-    private static void heapify(final HeapNode[] array, final int size, final int currentIndex) {
+    private static void heapify(final Node[] array, final int size, final int currentIndex) {
         int root = currentIndex;
         final int rightChildIndex = rightChildIndex(currentIndex);
         final int leftChildIndex = leftChildIndex(currentIndex);
@@ -72,7 +72,7 @@ public class MinHeap {
         }
 
         if(root != currentIndex) {
-            HeapNode swap = array[currentIndex];
+            Node swap = array[currentIndex];
             array[currentIndex] = array[root];
             array[root] = swap;
 
