@@ -36,22 +36,18 @@ public class Problem2 {
         getMinimumCoinChange(cost, results);
     }
 
-    public static void getChangeWithRandomCoins(int cost, final Map<Integer, Integer> results, final ArrayList<Integer> coins) {
-        if(coins.isEmpty())
-            return;
-
+    public static boolean getChangeWithRandomCoins(int cost, final Map<Integer, Integer> results, final List<Integer> coins) {
         coins.sort(Collections.reverseOrder());
-        final int maxCoin = coins.get(0);
+        for (final int maxCoin : coins) {
+            if (cost >= maxCoin) {
+                results.put(maxCoin, cost / maxCoin);
+                cost = cost % maxCoin;
+            }
 
-        if(cost >= maxCoin) {
-            cost = cost % maxCoin;
-            results.put(maxCoin, cost / maxCoin);
+            if (cost == 0)
+                break;
         }
 
-        if(cost == 0)
-            return;
-
-        coins.remove(0);
-        getChangeWithRandomCoins(cost, results, coins);
+        return cost == 0;
     }
 }
