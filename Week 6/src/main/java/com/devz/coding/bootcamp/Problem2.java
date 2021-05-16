@@ -1,6 +1,6 @@
 package com.devz.coding.bootcamp;
 
-import java.util.Map;
+import java.util.*;
 
 public class Problem2 {
 
@@ -34,5 +34,20 @@ public class Problem2 {
             return;
 
         getMinimumCoinChange(cost, results);
+    }
+
+    public static boolean getChangeWithRandomCoins(int cost, final Map<Integer, Integer> results, final List<Integer> coins) {
+        coins.sort(Collections.reverseOrder());
+        for (final int maxCoin : coins) {
+            if (cost >= maxCoin) {
+                results.put(maxCoin, cost / maxCoin);
+                cost = cost % maxCoin;
+            }
+
+            if (cost == 0)
+                break;
+        }
+
+        return cost == 0;
     }
 }
