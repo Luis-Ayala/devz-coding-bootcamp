@@ -38,14 +38,12 @@ public class Problem2 {
 
     public static boolean getChangeWithRandomCoins(int cost, final Map<Integer, Integer> results, final List<Integer> coins) {
         coins.sort(Collections.reverseOrder());
-        for (final int maxCoin : coins) {
+        for (int coin = 0; coin < coins.size() && cost != 0; coin++) {
+            final int maxCoin = coins.get(coin);
             if (cost >= maxCoin) {
                 results.put(maxCoin, cost / maxCoin);
                 cost = cost % maxCoin;
             }
-
-            if (cost == 0)
-                break;
         }
 
         return cost == 0;
